@@ -3,6 +3,7 @@
     var correctAnswers = 0
     var result = $('button')
     var i
+    var alertText1
     var alertText
     var q1Answers = $("input[name='q1']")
     var q2Answers = $("input[name='q2']")
@@ -18,9 +19,11 @@
         }
         if (q3Answers[i].checked && q3Answers[i].value === 'false') {
           correctAnswers++
+          console.log(correctAnswers)
         }
         if (correctAnswers === totalQuestions) {
-          alertText = 'Congratulations! You got all the questions right!'
+          alertText1 = 'Congratulations! You got all the questions right!'
+          alert(alertText1)
         } else {
           alertText = 'You got ' + correctAnswers + ' out of ' + totalQuestions + ' correct!'
           alert(alertText)
