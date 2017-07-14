@@ -1,85 +1,37 @@
   $(document).ready(function () {
-    console.log('hello')
-
-// var answers = {
-//   a:'True',
-//   b:'False',
-//   c:'True'
-// }
-function quizresult() {
-   //variables with global implications
-   var totalQuestions = 3
-   var correctAnswers = 0
-   var alertText;
-   var i;
-   var a1 = $("input[name='q1']")
-   for(i = 0; i < a1.length; i++) {
-      if(a1[i].checked) {
-         if(a1[i].value === 'true') {
-            correctAnswers++
-            break
-         }
+    var totalQuestions = 3
+    var correctAnswers = 0
+    var result = $('button')
+    var i
+    var alertText
+    function quizResult() {
+   for(i = 0; i < answerContainer.length; i++) {
+     var q1Answers = $("input[name='q1']")
+      if(q1Answers[i].checked && q1Answers[i].value === 'True') {
+        correctAnswers++
+        break
       }
+      if(q2Answers[i].checked && q2Answers[i].value === 'False') {
+        var q2Answers = $("input[name='q2']")
+        correctAnswers ++
+        break
+      }
+      if(q3Answers[i].checked && q3Answers[i].value === 'True') {
+        var q3Answers = $("input[name='q3']")
+        correctAnswers++
+        break
+      }
+      var answerContainer = q1Answers + q2Answers + q3Answers
+      if(correctAnswers === totalQuestions) {
+          alertText = "Congratulations! You got all the questions right!"
+       }
+       else {
+          alertText = "You got " + correctAnswers + " out of " + totalQuestions + " correct!"
+          alert(alertText)
+
+       }
    }
-   if(correctAnswers === totalQuestions) {
-       alertText = "Congratulations! You got all the questions right!"
     }
-    else {
-       alertText = "You got " + correctAnswers + " out of " + totalQuestions + " correct!"
-    }
-    alert(alertText)
+// result.on('click', quizResult())
  }
-})
-  //   var myQuestions = [ {
-  //
-  // question: 'The longest distance swam underwater in one breath is 200metres. (6th November 2008)',
-  // answer: {
-  //   a:'True',
-  //   b:'False'
-  // },
-  // correctAnswer :'a'
-  // },
-  //
-  // {
-  // question: 'The record for most needles inserted into the head is 15,000. (11th June 2013)',
-  // answer: {
-  // a:'False' ,
-  // b:'True',
-  // },
-  // correctAnswer: 'a'
-  // },
-  // {
-  // question:'The world’s longest legs belong to a Russian lady and measure 132cm (51.9 inches) (8th July 2003)',
-  // answer: {
-  // a:'True',
-  // b:'False'
-  // },
-  // correctAnswer:'a'
-  // },
-  // {
-  // question:'The record for the fastest time to solve a Rubik’s Cube one-handed is 37 seconds. (26th April 2014)',
-  // answer:{
-  // a:'True',
-  // b:'False',
-  // },
-  // correctAnswer: 'b'
-  // },
-  // {
-  //   question:'6 cows, 9 chickens and 12 humans have 66 legs',
-  // answer: {
-  //   a:'False',
-  //   b:'True'
-  // },
-  // correctAnswer: 'b'
-  // }
-  // ]
-  // var quizContainer = $('#questions')
-  // var scoreContainer = $('output')
-  // var submitButton = $('button')
-  // function generateQuestions(questions, quizContainer) {
-  //   var output =[]
-  //   for (let i = 0; i < questions.length; i++) {
-  //     var showQuestuion = 0
-  // showQuestuion += myQuestions.questions
-  //   }
-  //   return showQuestuion
+  )
